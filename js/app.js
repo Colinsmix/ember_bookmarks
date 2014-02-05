@@ -2,7 +2,9 @@ App = Ember.Application.create();
 
 App.Router.map(function() {
     this.resource('index',{path : '/'},function(){
-        this.resource('story', { path:'/stories/:story_id' });
+        this.resource('story', { path:'/stories/:story_id' },function(){
+            this.resource('comment', { path:'/stories/:story_id/comments'})
+        });
     });
 
     this.resource('newstory' , {path : 'story/new'});
@@ -70,4 +72,8 @@ App.StoryRoute = Ember.Route.extend({
 
 Ember.Handlebars.helper('format-date', function(date){
     return moment(date).fromNow();
+});
+
+App.CommentsIndexRoute = Ember.Route.extend({
+
 });

@@ -104,7 +104,14 @@
     <p class="lead">
       {{excerpt}}
     </p>
+    {{#link-to 'comment' this}}
+      Comments!
+    {{/link-to}}
+    {{outlet}}
+  </script>
 
+  <script type="text/x-handlebars" id="comment">
+    <h1>I hope this works</h1>
   </script>
 
   <script src="js/libs/jquery-1.9.1.js"></script>
